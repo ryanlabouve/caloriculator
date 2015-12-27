@@ -1,7 +1,7 @@
 {{#cl-box}}
   <h2 class="mt0">Stats</h2>
   <hr>
-  <label>Weight</label>
+  <label>Weight <span class="gray muted">lbs</span></label>
   {{input value=human.weight class="block field col-12 mb1"}}
   {{input value=human.weight
     type="range"
@@ -9,7 +9,10 @@
     max=300
     class="block range-light col-12 mb3"}}
 
-  <label>Height</label>
+  <span class="right">
+    {{humanReadableHeight}}
+  </span>
+  <label>Height <span class="gray muted">inches</span></label>
   {{input value=human.height class="block field col-12 mb1"}}
   {{input
     value=human.height
@@ -18,7 +21,7 @@
     type="range"
     class="block range-light col-12 mb3"}}
 
-  <label>Age</label>
+  <label>Age <span class="gray muted">years</span></label>
   {{input value=human.age class="block field col-12 mb1"}}
   {{input value=human.age
     type="range"
