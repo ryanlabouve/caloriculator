@@ -1,94 +1,98 @@
-{{#cl-box}}
+{{#cl-box boxClass="md-col-12"}}
   <h2 class="mt0">IIFYM</h2>
   <hr>
-  <p>
-  Based on a human's basic stats, we are able to calculate their BMR ({{ceil diet.bmr}}) and estimate their daily caoloric expenditure.
-  </p>
-  <label>Grams Protein Per Pound</label>
-  {{input value=diet.proteinPerPound class="block field col-12 mb1"}}
-  {{input value=diet.proteinPerPound
-    type="range"
-    min=0.0
-    max=2.0
-    step=0.1
+  <div class="clearfix">
+    <div class="col md-col-4">
+      <label>Calorie Adjustment: <strong>{{diet.calorieAdjustment}}</strong> ~{{ceil diet.goalWeight}}lbs</label>
+    {{input value=diet.calorieAdjustment
+      type="range"
+      min=-1000
+      max=1000
+      step=20
     class="block range-light col-12 mb3"}}
+      <label>Grams Protein Per Pound: <strong>{{diet.proteinPerPound}} g</strong></label>
+      {{input value=diet.proteinPerPound
+        type="range"
+        min=0.0
+        max=2.0
+        step=0.1
+        class="block range-light col-12 mb3 px1"}}
 
-  <label>Carbs Per Pound, No Activity</label>
-  {{input value=diet.carbsPerPoundNoActivity class="block field col-12 mb1"}}
-  {{input value=diet.carbsPerPoundNoActivity
-    type="range"
-    min=0.0
-    max=2.0
-    step=0.1
-    class="block range-light col-12 mb3"}}
+      <label>Carbs Per Pound, No Activity: <strong>{{diet.carbsPerPoundNoActivity}} g</strong></label>
+      {{input value=diet.carbsPerPoundNoActivity
+        type="range"
+        min=0.0
+        max=2.0
+        step=0.1
+        class="block range-light col-12 mb3 px1"}}
 
-  <label>Carbs Per Pound, Light Activity</label>
-  {{input value=diet.carbsPerPoundLightActivity class="block field col-12 mb1"}}
-  {{input value=diet.carbsPerPoundLightActivity
-    type="range"
-    min=0.0
-    max=2.0
-    step=0.1
-    class="block range-light col-12 mb3"}}
+      <label>Carbs Per Pound, Light Activity: <strong>{{diet.carbsPerPoundLightActivity}} g</strong></label>
+      {{input value=diet.carbsPerPoundLightActivity
+        type="range"
+        min=0.0
+        max=2.0
+        step=0.1
+        class="block range-light col-12 mb3 px1"}}
 
-  <label>Carbs Per Pound, Moderate Activity</label>
-  {{input value=diet.carbsPerPoundModerateActivity class="block field col-12 mb1"}}
-  {{input value=diet.carbsPerPoundModerateActivity
-    type="range"
-    min=0.0
-    max=2.0
-    step=0.1
-    class="block range-light col-12 mb3"}}
+      <label>Carbs Per Pound, Moderate Activity: <strong>{{diet.carbsPerPoundModerateActivity}} g</strong></label>
+      {{input value=diet.carbsPerPoundModerateActivity
+        type="range"
+        min=0.0
+        max=2.0
+        step=0.1
+        class="block range-light col-12 mb3 px1"}}
 
-  <label>Carbs Per Pound, Intense Activity</label>
-  {{input value=diet.carbsPerPoundIntenseActivity class="block field col-12 mb1"}}
-  {{input value=diet.carbsPerPoundIntenseActivity
-    type="range"
-    min=0.0
-    max=2.0
-    step=0.1
-    class="block range-light col-12 mb3"}}
-
-  <table class="table-light">
-    <thead>
-      <tr>
-        <th>Activity Lvl</th>
-        <th>Calories</th>
-        <th>Proteins</th>
-        <th>Carbs</th>
-        <th>Fats</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>None</td>
-        <td>{{ceil diet.bmrNoActivity}}</td>
-        <td>{{diet.proteinNoActivity}}</td>
-        <td>{{diet.carbsNoActivity}}</td>
-        <td>{{ceil diet.fatsNoActivity}}</td>
-      </tr>
-      <tr>
-        <td>Light</td>
-        <td>{{ceil diet.bmrLightActivity}}</td>
-        <td>{{diet.proteinLightActivity}}</td>
-        <td>{{diet.carbsLightActivity}}</td>
-        <td>{{ceil diet.fatsLightActivity}}</td>
-      </tr>
-      <tr>
-        <td>Moderate</td>
-        <td>{{ceil diet.bmrModerateActivity}}</td>
-        <td>{{diet.proteinModerateActivity}}</td>
-        <td>{{diet.carbsModerateActivity}}</td>
-        <td>{{ceil diet.fatsModerateActivity}}</td>
-      </tr>
-      <tr>
-        <td>Intense</td>
-        <td>{{ceil diet.bmrIntenseActivity}}</td>
-        <td>{{diet.proteinIntenseActivity}}</td>
-        <td>{{diet.carbsIntenseActivity}}</td>
-        <td>{{ceil diet.fatsIntenseActivity}}</td>
-      </tr>
-    </tbody>
-  </table>
+        <label>Carbs Per Pound, Intense Activity <strong>{{diet.carbsPerPoundIntenseActivity}}</strong></label>
+      {{input value=diet.carbsPerPoundIntenseActivity
+        type="range"
+        min=0.0
+        max=2.0
+        step=0.1
+        class="block range-light col-12 mb3 px1"}}
+    </div>
+    <div class="col md-col-8">
+      <table class="table-light">
+        <thead>
+          <tr>
+            <th>Activity Lvl</th>
+            <th>Calories</th>
+            <th>Proteins</th>
+            <th>Carbs</th>
+            <th>Fats</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>None</td>
+            <td>{{ceil diet.adjustedBmrNoActivity}}</td>
+            <td>{{ceil diet.proteinNoActivity}}</td>
+            <td>{{ceil diet.carbsNoActivity}}</td>
+            <td>{{ceil diet.fatsNoActivity}}</td>
+          </tr>
+          <tr>
+            <td>Light</td>
+            <td>{{ceil diet.adjustedBmrLightActivity}}</td>
+            <td>{{ceil diet.proteinLightActivity}}</td>
+            <td>{{ceil diet.carbsLightActivity}}</td>
+            <td>{{ceil diet.fatsLightActivity}}</td>
+          </tr>
+          <tr>
+            <td>Moderate</td>
+            <td>{{ceil diet.adjustedBmrModerateActivity}}</td>
+            <td>{{ceil diet.proteinModerateActivity}}</td>
+            <td>{{ceil diet.carbsModerateActivity}}</td>
+            <td>{{ceil diet.fatsModerateActivity}}</td>
+          </tr>
+          <tr>
+            <td>Intense</td>
+            <td>{{ceil diet.adjustedBmrIntenseActivity}}</td>
+            <td>{{ceil diet.proteinIntenseActivity}}</td>
+            <td>{{ceil diet.carbsIntenseActivity}}</td>
+            <td>{{ceil diet.fatsIntenseActivity}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
 {{/cl-box}}

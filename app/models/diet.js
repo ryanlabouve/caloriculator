@@ -12,6 +12,7 @@ export default DS.Model.extend({
 
   human: null,
 
+  calorieAdjustment: -440,
 
   bmr: conditional(
     equal('human.sex', 'male'),
@@ -38,22 +39,56 @@ export default DS.Model.extend({
   bmrModerateActivity: product('bmr', 1.55),
   bmrIntenseActivity: product('bmr', 1.725),
 
+  goalWeight: conditional(
+    equal('human.sex', 'male'),
+    'goalWeightMale',
+    'goalWeightFemale'
+  ),
+
+  adjustedBmr: sum('bmr', product('calorieAdjustment', 1)),
+
+  adjustedBmrNoActivity: product('adjustedBmr', 1.2),
+  adjustedBmrLightActivity: product('adjustedBmr', 1.375),
+  adjustedBmrModerateActivity: product('adjustedBmr', 1.55),
+  adjustedBmrIntenseActivity: product('adjustedBmr', 1.725),
+
+  goalWeightMale: quotient(
+    sum(
+      -66,
+      'adjustedBmr',
+      product(-1, product('human.height', 12.7)),
+      product('human.age', 6.8),
+    ),
+    6.23
+  ),
+
+  goalWeightFemale: quotient(
+    sum(
+      'adjustedBmr',
+      product(-1, product('human.height', 4.7)),
+      product('human.age', 4.7),
+      -655
+    ),
+    4.35
+  ),
+
+
   proteinPerPound: 1.1,
   carbsPerPoundNoActivity: 0.4,
-  carbsPerPoundLightActivity: 1.0,
-  carbsPerPoundModerateActivity: 1.3,
-  carbsPerPoundIntenseActivity: 1.7,
+  carbsPerPoundLightActivity: 0.8,
+  carbsPerPoundModerateActivity: 1.1,
+  carbsPerPoundIntenseActivity: 1.5,
 
-  proteinNoActivity: product('human.weight', 'proteinPerPound'),
+  proteinNoActivity: product('goalWeight', 'proteinPerPound'),
   proteinLightActivity: computed.alias('proteinNoActivity'),
   proteinModerateActivity: computed.alias('proteinNoActivity'),
   proteinIntenseActivity: computed.alias('proteinNoActivity'),
 
 
-  carbsNoActivity: product('human.weight', 'carbsPerPoundNoActivity'),
-  carbsLightActivity: product('human.weight', 'carbsPerPoundLightActivity'),
-  carbsModerateActivity: product('human.weight', 'carbsPerPoundModerateActivity'),
-  carbsIntenseActivity: product('human.weight', 'carbsPerPoundIntenseActivity'),
+  carbsNoActivity: product('goalWeight', 'carbsPerPoundNoActivity'),
+  carbsLightActivity: product('goalWeight', 'carbsPerPoundLightActivity'),
+  carbsModerateActivity: product('goalWeight', 'carbsPerPoundModerateActivity'),
+  carbsIntenseActivity: product('goalWeight', 'carbsPerPoundIntenseActivity'),
 
   _caloriesNoFatsNoActivity: difference(
     'bmrNoActivity',
