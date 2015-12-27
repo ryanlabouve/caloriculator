@@ -85,28 +85,56 @@
         <tbody>
           <tr>
             <td>None</td>
-            <td>{{ceil diet.adjustedBmrNoActivity}}</td>
+            <td>
+              {{ceil diet.adjustedBmrNoActivity}}
+              {{#if (not-eq diffNoActivity 0)}}
+                <span class="{{if (lt diffNoActivity 0) "red" "green"}} muted">
+                  {{if (gt diffNoActivity 0) '+'}}
+                  {{ceil diffNoActivity}}</span>
+              {{/if}}
+            </td>
             <td>{{ceil diet.proteinNoActivity}}</td>
             <td>{{ceil diet.carbsNoActivity}}</td>
             <td>{{ceil diet.fatsNoActivity}}</td>
           </tr>
           <tr>
             <td>Light</td>
-            <td>{{ceil diet.adjustedBmrLightActivity}}</td>
+            <td>
+              {{ceil diet.adjustedBmrLightActivity}}
+              {{#if (not-eq diffLightActivity 0)}}
+                <span class="{{if (lt diffLightActivity 0) "red" "green"}} muted">
+                  {{if (gt diffLightActivity 0) '+'}}
+                  {{ceil diffLightActivity }}</span>
+              {{/if}}
+            </td>
             <td>{{ceil diet.proteinLightActivity}}</td>
             <td>{{ceil diet.carbsLightActivity}}</td>
             <td>{{ceil diet.fatsLightActivity}}</td>
           </tr>
           <tr>
             <td>Moderate</td>
-            <td>{{ceil diet.adjustedBmrModerateActivity}}</td>
+            <td>
+              {{ceil diet.adjustedBmrModerateActivity}}
+              {{#if (not-eq diffModerateActivity 0)}}
+                <span class="{{if (lt diffModerateActivity 0) "red" "green"}} muted">
+                  {{if (gt diffModerateActivity 0) '+'}}
+                  {{ceil diffModerateActivity }}</span>
+              {{/if}}
+            </td>
             <td>{{ceil diet.proteinModerateActivity}}</td>
             <td>{{ceil diet.carbsModerateActivity}}</td>
             <td>{{ceil diet.fatsModerateActivity}}</td>
           </tr>
           <tr>
             <td>Intense</td>
-            <td>{{ceil diet.adjustedBmrIntenseActivity}}</td>
+            <td>
+              {{ceil diet.adjustedBmrIntenseActivity}}
+              {{#if (not-eq diffIntenseActivity 0)}}
+                <span class="{{if (lt diffIntenseActivity 0) "red" "green"}} muted">
+                  {{if (gt diffIntenseActivity 0) '+'}}
+                  {{ceil diffIntenseActivity }}</span>
+              {{/if}}
+            </td>
             <td>{{ceil diet.proteinIntenseActivity}}</td>
             <td>{{ceil diet.carbsIntenseActivity}}</td>
             <td>{{ceil diet.fatsIntenseActivity}}</td>
