@@ -1,11 +1,9 @@
 {{#cl-box}}
   <h2 class="mt0">Maintenance</h2>
   <hr>
-  Human: {{diet.human.weight}}
-  Human: {{diet.human.sex}}
-  BMR: {{diet.bmr}}
-  {{yield}}
-
+  <p>
+  Based on a human's basic stats, we are able to calculate their BMR ({{ceil diet.bmr}}) and estimate their daily caoloric expenditure.
+  </p>
   <table class="table-light">
     <thead>
       <tr>
