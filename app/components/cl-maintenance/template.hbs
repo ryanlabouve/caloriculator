@@ -1,0 +1,36 @@
+{{#cl-box}}
+  <h2 class="mt0">Maintenance</h2>
+  <hr>
+  Human: {{diet.human.weight}}
+  Human: {{diet.human.sex}}
+  BMR: {{diet.bmr}}
+  {{yield}}
+
+  <table class="table-light">
+    <thead>
+      <tr>
+        <th>Activity Lvl</th>
+        <th>Calories</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>None</td>
+        <td>{{diet.bmrNoActivity}}</td>
+      </tr>
+      <tr>
+        <td>Light</td>
+        <td>{{diet.bmrLightActivity}}</td>
+      </tr>
+      <tr>
+        <td>Moderate</td>
+        <td>{{diet.bmrModerateActivity}}</td>
+      </tr>
+      <tr>
+        <td>Intense</td>
+        <td>{{diet.bmrIntenseActivity}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+{{/cl-box}}

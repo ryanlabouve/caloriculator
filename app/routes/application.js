@@ -9,7 +9,8 @@ const humanDefaults = {
 export default Ember.Route.extend({
   model() {
     return Ember.RSVP.hash({
-      human: this.store.createRecord('human', humanDefaults)
+      human: this.store.createRecord('human', humanDefaults),
+      diet: this.store.createRecord('diet')
     });
   }
 });
