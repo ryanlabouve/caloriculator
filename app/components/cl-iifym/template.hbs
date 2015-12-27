@@ -1,4 +1,25 @@
 {{#cl-box boxClass="md-col-12"}}
+  {{#if (lt 0 diet.calorieAdjustment)}}
+    {{#if (lt 500 diet.calorieAdjustment)}}
+      <span class="inline-block px1 white bg-red rounded right">
+        Dirty Bulking™
+      </span>
+    {{else}}
+      <span class="inline-block px1 white bg-orange rounded right">
+        Bulking
+      </span>
+    {{/if}}
+  {{else}}
+    {{#if (lt -500 diet.calorieAdjustment)}}
+      <span class="inline-block px1 white bg-aqua rounded right">
+        Cutting
+      </span>
+    {{else}}
+      <span class="inline-block px1 white bg-purple rounded right">
+        Starving
+      </span>
+    {{/if}}
+  {{/if}}
   <h2 class="mt0">IIFYM</h2>
   <hr>
   <div class="clearfix">
