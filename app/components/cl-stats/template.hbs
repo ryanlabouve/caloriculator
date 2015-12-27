@@ -1,6 +1,43 @@
 {{#cl-box}}
-  Weight: {{human.weight}}
-  Height: {{human.height}}
-  Age: {{human.age}}
-  Sex: {{human.sex}}
+  <h2 class="mt0">Stats</h2>
+  <hr>
+  <label>Weight</label>
+  {{input value=human.weight class="block field col-12 mb1"}}
+  {{input value=human.weight
+    type="range"
+    min=80
+    max=300
+    class="block range-light col-12 mb3"}}
+
+  <label>Height</label>
+  {{input value=human.height class="block field col-12 mb1"}}
+  {{input
+    value=human.height
+    min=24
+    max=84
+    type="range"
+    class="block range-light col-12 mb3"}}
+
+  <label>Age</label>
+  {{input value=human.age class="block field col-12 mb1"}}
+  {{input value=human.age
+    type="range"
+    min=10
+    max=120
+    class="block range-light col-12 mb3"}}
+
+  <label>Sex</label>
+  {{input value=human.sex class="block field col-12 mb1"}}
+  {{#radio-button
+    value="male"
+    groupValue=human.sex
+    changed=(action (mut human.sex))}}
+    Male
+    {{/radio-button}}
+  {{#radio-button
+    value="female"
+    groupValue=human.sex
+    changed=(action (mut human.sex))}}
+    Female
+    {{/radio-button}}
 {{/cl-box}}
