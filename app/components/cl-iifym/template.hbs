@@ -93,8 +93,18 @@
                   {{ceil diffNoActivity}}</span>
               {{/if}}
             </td>
-            <td>{{ceil diet.proteinNoActivity}}</td>
-            <td>{{ceil diet.carbsNoActivity}}</td>
+            <td>
+              {{ceil diet.proteinNoActivity}}
+              <span class="gray muted">
+                (~{{ceil diet.goalWeight}} &times; {{diet.proteinPerPound}})
+              </span>
+            </td>
+            <td>
+              {{ceil diet.carbsNoActivity}}
+              <span class="gray muted">
+                (~{{ceil diet.goalWeight}} &times; {{diet.carbsPerPoundNoActivity}})
+              </span>
+            </td>
             <td>{{ceil diet.fatsNoActivity}}</td>
           </tr>
           <tr>
@@ -107,8 +117,18 @@
                   {{ceil diffLightActivity }}</span>
               {{/if}}
             </td>
-            <td>{{ceil diet.proteinLightActivity}}</td>
-            <td>{{ceil diet.carbsLightActivity}}</td>
+            <td>
+              {{ceil diet.proteinLightActivity}}
+              <span class="gray muted">
+                (~{{ceil diet.goalWeight}} &times; {{diet.proteinPerPound}})
+              </span>
+            </td>
+            <td>
+              {{ceil diet.carbsLightActivity}}
+              <span class="gray muted">
+                (~{{ceil diet.goalWeight}} &times; {{diet.carbsPerPoundLightActivity}})
+              </span>
+            </td>
             <td>{{ceil diet.fatsLightActivity}}</td>
           </tr>
           <tr>
@@ -121,8 +141,18 @@
                   {{ceil diffModerateActivity }}</span>
               {{/if}}
             </td>
-            <td>{{ceil diet.proteinModerateActivity}}</td>
-            <td>{{ceil diet.carbsModerateActivity}}</td>
+            <td>
+              {{ceil diet.proteinModerateActivity}}
+              <span class="gray muted">
+                (~{{ceil diet.goalWeight}} &times; {{diet.proteinPerPound}})
+              </span>
+            </td>
+            <td>
+              {{ceil diet.carbsModerateActivity}}
+              <span class="gray muted">
+                (~{{ceil diet.goalWeight}} &times; {{diet.carbsPerPoundModerateActivity}})
+              </span>
+            </td>
             <td>{{ceil diet.fatsModerateActivity}}</td>
           </tr>
           <tr>
@@ -135,8 +165,18 @@
                   {{ceil diffIntenseActivity }}</span>
               {{/if}}
             </td>
-            <td>{{ceil diet.proteinIntenseActivity}}</td>
-            <td>{{ceil diet.carbsIntenseActivity}}</td>
+            <td>
+              {{ceil diet.proteinIntenseActivity}}
+              <span class="gray muted">
+                (~{{ceil diet.goalWeight}} &times; {{diet.proteinPerPound}})
+              </span>
+            </td>
+            <td>
+              {{ceil diet.carbsIntenseActivity}}
+              <span class="gray muted">
+                (~{{ceil diet.goalWeight}} &times; {{diet.carbsPerPoundIntenseActivity}})
+              </span>
+            </td>
             <td>{{ceil diet.fatsIntenseActivity}}</td>
           </tr>
         </tbody>
