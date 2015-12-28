@@ -6,7 +6,7 @@ const { Macros: { sum, difference, product, quotient, conditional }} = EmberCPM;
 
 export default Ember.Component.extend({
   numberOfMeals: 5,
-  workoutTime: 'am',
+  workoutTime: 'noon',
   workoutMarkers: {
     'am': {
       3: 1,
