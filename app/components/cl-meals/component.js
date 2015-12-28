@@ -144,8 +144,11 @@ export default Ember.Component.extend({
           "id": i + 1,
           calories,
           protein,
+          proteinFactor: partitionMap['protein'][i],
           fat,
-          carbs
+          fatFactor: partitionMap['fats'][i],
+          carbs,
+          carbsFactor: partitionMap['carbs'][i],
         }
       );
     }

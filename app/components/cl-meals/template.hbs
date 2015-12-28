@@ -70,13 +70,13 @@
           {{ceil meal.calories}}
         </td>
         <td>
-          {{ceil meal.protein}}
+          {{ceil meal.protein}} <span class="gray muted">{{percents meal.proteinFactor}}</span>
         </td>
         <td>
-          {{ceil meal.fat}}
+          {{ceil meal.fat}} <span class="gray muted">{{percents meal.fatFactor}}</span>
         </td>
         <td>
-          {{ceil meal.carbs}}
+          {{ceil meal.carbs}} <span class="gray muted">{{percents meal.carbsFactor}}</span>
         </td>
       </tr>
     {{/each}}
