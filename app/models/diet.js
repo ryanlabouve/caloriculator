@@ -74,10 +74,10 @@ export default DS.Model.extend({
 
 
   proteinPerPound: 1.1,
-  carbsPerPoundNoActivity: 0.4,
-  carbsPerPoundLightActivity: 0.8,
-  carbsPerPoundModerateActivity: 1.1,
-  carbsPerPoundIntenseActivity: 1.5,
+  carbsPerPoundNoActivity: 0.5,
+  carbsPerPoundLightActivity: 0.7,
+  carbsPerPoundModerateActivity: 1.0,
+  carbsPerPoundIntenseActivity: 1.2,
 
   proteinNoActivity: product('goalWeight', 'proteinPerPound'),
   proteinLightActivity: computed.alias('proteinNoActivity'),

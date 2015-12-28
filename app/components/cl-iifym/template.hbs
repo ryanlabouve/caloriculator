@@ -30,14 +30,14 @@
       min=-1000
       max=1000
       step=20
-    class="block range-light col-12 mb3"}}
+      class="block range-light col-12 mb3 px2"}}
       <label>Grams Protein Per Pound: <strong>{{diet.proteinPerPound}} g</strong></label>
       {{input value=diet.proteinPerPound
         type="range"
         min=0.0
         max=2.0
         step=0.1
-        class="block range-light col-12 mb3 px1"}}
+        class="block range-light col-12 mb3 px2"}}
 
       <label>Carbs Per Pound, No Activity: <strong>{{diet.carbsPerPoundNoActivity}} g</strong></label>
       {{input value=diet.carbsPerPoundNoActivity
@@ -45,7 +45,7 @@
         min=0.0
         max=2.0
         step=0.1
-        class="block range-light col-12 mb3 px1"}}
+        class="block range-light col-12 mb3 px2"}}
 
       <label>Carbs Per Pound, Light Activity: <strong>{{diet.carbsPerPoundLightActivity}} g</strong></label>
       {{input value=diet.carbsPerPoundLightActivity
@@ -53,7 +53,7 @@
         min=0.0
         max=2.0
         step=0.1
-        class="block range-light col-12 mb3 px1"}}
+        class="block range-light col-12 mb3 px2"}}
 
       <label>Carbs Per Pound, Moderate Activity: <strong>{{diet.carbsPerPoundModerateActivity}} g</strong></label>
       {{input value=diet.carbsPerPoundModerateActivity
@@ -61,7 +61,7 @@
         min=0.0
         max=2.0
         step=0.1
-        class="block range-light col-12 mb3 px1"}}
+        class="block range-light col-12 mb3 px2"}}
 
         <label>Carbs Per Pound, Intense Activity <strong>{{diet.carbsPerPoundIntenseActivity}}</strong></label>
       {{input value=diet.carbsPerPoundIntenseActivity
@@ -69,10 +69,22 @@
         min=0.0
         max=2.0
         step=0.1
-        class="block range-light col-12 mb3 px1"}}
+        class="block range-light col-12 mb3 px2"}}
     </div>
     <div class="col md-col-8">
-      <table class="table-light">
+      <div class="clearfix">
+        <div class="col md-col-6 p2">
+          <strong class="block">Bulking or Cutting</strong> <hr>Start by adjusting your calorie intake to be above or below maintanence based on current phase.
+        </div>
+        <div class="col md-col-6 p2">
+          <strong class="block">
+            Granular Adjustments
+          </strong>
+          <hr>
+          Next, adjust macros based on your goals. Lose fast? Less carbs. Grain/maintain muscle? Protein at 1.
+        </div>
+      </div>
+      <table class="table-light mt2">
         <thead>
           <tr>
             <th>Activity Lvl</th>
@@ -186,14 +198,14 @@
 {{/cl-box}}
 
 {{cl-meals
-  title="Meals, No Activity"
+  title="Meal Planning, No Activity"
   calories=diet.adjustedBmrNoActivity
   proteins=diet.proteinNoActivity
   fats=diet.fatsNoActivity
   carbs=diet.carbsNoActivity
   }}
 {{cl-meals
-  title="Meals, Light Activity"
+  title="Meal Planning, Light Activity"
   calories=diet.adjustedBmrLightActivity
   proteins=diet.proteinLightActivity
   fats=diet.fatsLightActivity
@@ -201,7 +213,7 @@
   weighted=true
   }}
 {{cl-meals
-  title="Meals, Moderate Activity"
+  title="Meals Planning, Moderate Activity"
   calories=diet.adjustedBmrModerateActivity
   proteins=diet.proteinModerateActivity
   fats=diet.fatsModerateActivity
@@ -209,7 +221,7 @@
   weighted=true
   }}
 {{cl-meals
-  title="Meals, Intense Activity"
+  title="Meals Planning, Intense Activity"
   calories=diet.adjustedBmrIntenseActivity
   proteins=diet.proteinIntenseActivity
   fats=diet.fatsIntenseActivity
