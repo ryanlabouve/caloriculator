@@ -1,0 +1,84 @@
+{{#cl-box}}
+<h2 class="mt0">{{title}}</h2>
+  <hr>
+  <label>Number of meals: <strong>{{numberOfMeals}}</strong></label>
+  {{input value=numberOfMeals
+    type="range"
+    min=3
+    max=7
+    class="block range-light col-12 mb3"}}
+  <hr>
+  <label class="block">Workout Time</label>
+  {{#radio-button
+    value="am"
+    groupValue=workoutTime
+    changed=(action (mut workoutTime))}}
+    AM
+    {{/radio-button}}
+  {{#radio-button
+    value="noon"
+    groupValue=workoutTime
+    changed=(action (mut workoutTime))}}
+    Noon
+    {{/radio-button}}
+  {{#radio-button
+    value="pm"
+    groupValue=workoutTime
+    changed=(action (mut workoutTime))}}
+    PM
+    {{/radio-button}}
+  {{#radio-button
+    value="late"
+    groupValue=workoutTime
+    changed=(action (mut workoutTime))}}
+    Late
+    {{/radio-button}}
+    <hr>
+    <table class="table-light">
+      <thead>
+        <tr>
+          <th>
+            Meal No.
+          </th>
+          <th>
+            Cals
+          </th>
+          <th>
+            Protein
+          </th>
+          <th>
+            Fat
+          </th>
+          <th>
+            Carb
+          </th>
+        </tr>
+      </thead>
+    {{#each meals as |meal index|}}
+      {{#if (eq index  currentWorkoutMarker)}}
+        <tr class="center">
+          <td colspan=5>
+            Workout
+          </td>
+        </tr>
+      {{/if}}
+      <tr>
+        <td>
+          {{ceil meal.id}}
+        </td>
+        <td>
+          {{ceil meal.calories}}
+        </td>
+        <td>
+          {{ceil meal.protein}}
+        </td>
+        <td>
+          {{ceil meal.fat}}
+        </td>
+        <td>
+          {{ceil meal.carbs}}
+        </td>
+      </tr>
+    {{/each}}
+    </table>
+{{/cl-box}}

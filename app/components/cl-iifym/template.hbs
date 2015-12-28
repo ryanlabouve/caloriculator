@@ -183,5 +183,37 @@
       </table>
     </div>
   </div>
-
 {{/cl-box}}
+
+<h3>Nutrient Timing</h3>
+{{cl-meals
+  title="Meals, No Activity"
+  calories=diet.adjustedBmrNoActivity
+  proteins=diet.proteinNoActivity
+  fats=diet.fatsNoActivity
+  carbs=diet.carbsNoActivity
+  }}
+{{cl-meals
+  title="Meals, Light Activity"
+  calories=diet.adjustedBmrLightActivity
+  proteins=diet.proteinLightActivity
+  fats=diet.fatsLightActivity
+  carbs=diet.carbsLightActivity
+  weighted=true
+  }}
+{{cl-meals
+  title="Meals, Moderate Activity"
+  calories=diet.adjustedBmrModerateActivity
+  proteins=diet.proteinModerateActivity
+  fats=diet.fatsModerateActivity
+  carbs=diet.carbsModerateActivity
+  weighted=true
+  }}
+{{cl-meals
+  title="Meals, Intense Activity"
+  calories=diet.adjustedBmrIntenseActivity
+  proteins=diet.proteinIntenseActivity
+  fats=diet.fatsIntenseActivity
+  carbs=diet.carbsIntenseActivity
+  weighted=true
+  }}
