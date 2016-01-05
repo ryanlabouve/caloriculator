@@ -2,7 +2,10 @@
 <h2 class="mt0">{{title}}</h2>
   <hr>
   <label>Number of meals: <strong>{{numberOfMeals}}</strong></label>
-  {{input value=numberOfMeals
+  {{rangeslider-js
+    start=numberOfMeals
+    slide=(action (mut numberOfMeals))
+    slideEnd=(action (mut numberOfMeals))
     type="range"
     min=3
     max=7

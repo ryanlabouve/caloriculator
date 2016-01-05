@@ -19,7 +19,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "basscss-sass": "^3.0.0",
+    "basscss-sass": "https://github.com/ryanlabouve/basscss-sass#bce06ab68f39dc668c9cdb7a5c0b4e99348f328b",
     "broccoli-asset-rev": "^2.2.0",
     "ember-cli": "1.13.13",
     "ember-cli-app-version": "^1.0.0",
@@ -32,7 +32,9 @@
     "ember-cli-htmlbars-inline-precompile": "^0.3.1",
     "ember-cli-ic-ajax": "0.2.4",
     "ember-cli-inject-live-reload": "^1.3.1",
+    "ember-cli-nouislider": "0.7.0",
     "ember-cli-qunit": "^1.0.4",
+    "ember-cli-rangesliderjs": "0.0.1",
     "ember-cli-release": "0.2.8",
     "ember-cli-sass": "5.2.1",
     "ember-cli-sri": "^1.2.0",

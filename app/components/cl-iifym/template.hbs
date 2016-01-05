@@ -25,51 +25,64 @@
   <div class="clearfix">
     <div class="col md-col-4">
       <label>Calorie Adjustment: <strong>{{diet.calorieAdjustment}}</strong> ~{{ceil diet.goalWeight}}lbs</label>
-    {{input value=diet.calorieAdjustment
-      type="range"
+
+      a
+    {{rangeslider-js
+      start=diet.calorieAdjustment
       min=-1000
       max=1000
-      step=20
-      class="block range-light col-12 mb3 px2"}}
-      <label>Grams Protein Per Pound: <strong>{{diet.proteinPerPound}} g</strong></label>
-      {{input value=diet.proteinPerPound
-        type="range"
+      slide=(action (mut diet.calorieAdjustment))
+      slideEnd=(action (mut diet.calorieAdjustment))
+      class="col-12 mt1 mb3"}}
+    <label>Grams Protein Per Pound: <strong>{{diet.proteinPerPound}} g</strong></label>
+      {{rangeslider-js
+        start=diet.proteinPerPound
+        slide=(action (mut diet.proteinPerPound))
+        slideEnd=(action (mut diet.proteinPerPound))
         min=0.0
         max=2.0
         step=0.1
-        class="block range-light col-12 mb3 px2"}}
+        class="block col-12 mb3 mt1"}}
 
       <label>Carbs Per Pound, No Activity: <strong>{{diet.carbsPerPoundNoActivity}} g</strong></label>
-      {{input value=diet.carbsPerPoundNoActivity
-        type="range"
+      {{rangeslider-js
+        start=diet.carbsPerPoundNoActivity
+        slide=(action (mut diet.carbsPerPoundNoActivity))
+        slideEnd=(action (mut diet.carbsPerPoundNoActivity))
         min=0.0
         max=2.0
         step=0.1
-        class="block range-light col-12 mb3 px2"}}
+        class="block col-12 mb3 mt1"}}
 
       <label>Carbs Per Pound, Light Activity: <strong>{{diet.carbsPerPoundLightActivity}} g</strong></label>
-      {{input value=diet.carbsPerPoundLightActivity
-        type="range"
+      {{rangeslider-js
+        start=diet.carbsPerPoundLightActivity
+        slide=(action (mut diet.carbsPerPoundLightActivity))
+        slideEnd=(action (mut diet.carbsPerPoundLightActivity))
         min=0.0
         max=2.0
         step=0.1
-        class="block range-light col-12 mb3 px2"}}
+        class="block col-12 mb3 mt1"}}
 
       <label>Carbs Per Pound, Moderate Activity: <strong>{{diet.carbsPerPoundModerateActivity}} g</strong></label>
-      {{input value=diet.carbsPerPoundModerateActivity
-        type="range"
+      {{rangeslider-js
+        start=diet.carbsPerPoundModerateActivity
+        slide=(action (mut diet.carbsPerPoundModerateActivity))
+        slideEnd=(action (mut diet.carbsPerPoundModerateActivity))
         min=0.0
         max=2.0
         step=0.1
-        class="block range-light col-12 mb3 px2"}}
+        class="block col-12 mb3 mt1"}}
 
         <label>Carbs Per Pound, Intense Activity <strong>{{diet.carbsPerPoundIntenseActivity}}</strong></label>
-      {{input value=diet.carbsPerPoundIntenseActivity
-        type="range"
+      {{rangeslider-js
+        start=diet.carbsPerPoundIntenseActivity
+        slide=(action (mut diet.carbsPerPoundIntenseActivity))
+        slideEnd=(action (mut diet.carbsPerPoundIntenseActivity))
         min=0.0
         max=2.0
         step=0.1
-        class="block range-light col-12 mb3 px2"}}
+        class="block col-12 mb3 mt1"}}
     </div>
     <div class="col md-col-8">
       <div class="clearfix">
