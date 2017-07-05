@@ -91,7 +91,7 @@ export default DS.Model.extend({
   carbsIntenseActivity: product('goalWeight', 'carbsPerPoundIntenseActivity'),
 
   _caloriesNoFatsNoActivity: difference(
-    'bmrNoActivity',
+    'adjustedBmrNoActivity',
     sum(
       product('carbsNoActivity', '_carbCalories'),
       product('proteinNoActivity', '_proteinCalories')
@@ -100,7 +100,7 @@ export default DS.Model.extend({
   fatsNoActivity: quotient('_caloriesNoFatsNoActivity', '_fatCalories'),
 
   _caloriesNoFatsLightActivity: difference(
-    'bmrLightActivity',
+    'adjustedBmrLightActivity',
     sum(
       product('carbsLightActivity', '_carbCalories'),
       product('proteinLightActivity', '_proteinCalories')
@@ -109,7 +109,7 @@ export default DS.Model.extend({
   fatsLightActivity: quotient('_caloriesNoFatsLightActivity', '_fatCalories'),
 
   _caloriesNoFatsModerateActivity: difference(
-    'bmrModerateActivity',
+    'adjustedBmrModerateActivity',
     sum(
       product('carbsModerateActivity', '_carbCalories'),
       product('proteinModerateActivity', '_proteinCalories')
@@ -118,7 +118,7 @@ export default DS.Model.extend({
   fatsModerateActivity: quotient('_caloriesNoFatsModerateActivity', '_fatCalories'),
 
   _caloriesNoFatsIntenseActivity: difference(
-    'bmrIntenseActivity',
+    'adjustedBmrIntenseActivity',
     sum(
       product('carbsIntenseActivity', '_carbCalories'),
       product('proteinIntenseActivity', '_proteinCalories')
