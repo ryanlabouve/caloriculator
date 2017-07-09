@@ -1,16 +1,15 @@
 import Ember from 'ember';
+import deparam from '../utils/deparam';
 
-const humanDefaults = {
-  weight: 270,
-  height: 72,
-  age: 27,
-  sex: 'male'
-}
 export default Ember.Route.extend({
-  model() {
+  model(_, { queryParams }) {
+    let deparamedQueryParams = deparam(queryParams);
+    let humanFromURL = deparamedQueryParams.human || {};
+    let dietFromURL = deparamedQueryParams.diet || {};
+
     return Ember.RSVP.hash({
-      human: this.store.createRecord('human', humanDefaults),
-      diet: this.store.createRecord('diet')
+      human: this.store.createRecord('human', humanFromURL),
+      diet: this.store.createRecord('diet', dietFromURL)
     });
   }
 });
