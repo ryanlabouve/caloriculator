@@ -7,9 +7,12 @@ export default Ember.Route.extend({
     let humanFromURL = deparamedQueryParams.human || {};
     let dietFromURL = deparamedQueryParams.diet || {};
 
+    let human = this.store.createRecord('human', humanFromURL);
+    let diet = this.store.createRecord('diet', Object.assign({}, dietFromURL, { human}));
+
     return Ember.RSVP.hash({
-      human: this.store.createRecord('human', humanFromURL),
-      diet: this.store.createRecord('diet', dietFromURL)
+      human,
+      diet
     });
   }
 });

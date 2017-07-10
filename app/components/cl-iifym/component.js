@@ -4,10 +4,11 @@ import EmberCPM from 'ember-cpm';
 const { Macros: { sum, difference, product }} = EmberCPM;
 
 export default Ember.Component.extend({
-  didReceiveAttrs() {
+  init() {
+    this._super(...arguments);
     const diet = this.get('diet');
     const human = this.get('human');
-    diet.set('human', human);
+    // debugger;
   },
 
   diffNoActivity: difference('diet.adjustedBmrNoActivity', 'diet.bmrNoActivity'),

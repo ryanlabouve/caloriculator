@@ -34,10 +34,10 @@ function deparam(queryParams) {
 
   qpKeys.forEach(function(key) {
     let value = queryParams[key];
-    let valueAddress = getValueAddress(key)
+    let valueAddress = getValueAddress(key);
     setValue(rootObject, valueAddress, value);
   });
   return rootObject;
-};
+}
 
 export default deparam;

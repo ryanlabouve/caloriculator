@@ -1,8 +1,6 @@
 import Ember from 'ember';
-import EmberCPM from 'ember-cpm';
 const { computed } = Ember;
 const { computed: {equal}} = Ember;
-const { Macros: { sum, difference, product, quotient, conditional }} = EmberCPM;
 
 export default Ember.Component.extend({
   numberOfMeals: 5,

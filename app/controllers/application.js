@@ -10,12 +10,12 @@ export default Ember.Controller.extend({
   ],
   human: null,
   diet: null,
+
   asdf: Ember.observer('model.human.{name,weight,height,age,sex}', function() {
-    Ember.run.debounce(null, () => {
-      let humanProperties = ['name', 'weight', 'height', 'age', 'sex'];
-      humanProperties.forEach((prop) => {
-        this.set(`human[${prop}]`, this.get(`model.human.${prop}`));
-      }, 150);
+    // Debounce
+    let humanProperties = ['name', 'weight', 'height', 'age', 'sex'];
+    humanProperties.forEach((prop) => {
+      this.set(`human[${prop}]`, this.get(`model.human.${prop}`));
     });
   })
 });

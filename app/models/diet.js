@@ -1,3 +1,4 @@
+import Ember from 'ember';
 import DS from 'ember-data';
 import EmberCPM from 'ember-cpm';
 
@@ -6,13 +7,18 @@ const { computed: {equal}} = Ember;
 const { Macros: { sum, difference, product, quotient, conditional }} = EmberCPM;
 
 export default DS.Model.extend({
-  _proteinCalories: 4,
-  _carbCalories: 4,
-  _fatCalories: 9,
-
   human: null,
 
   calorieAdjustment: -440,
+  proteinPerPound: 1.1,
+  carbsPerPoundNoActivity: 0.5,
+  carbsPerPoundLightActivity: 0.7,
+  carbsPerPoundModerateActivity: 1.0,
+  carbsPerPoundIntenseActivity: 1.2,
+
+  _proteinCalories: 4,
+  _carbCalories: 4,
+  _fatCalories: 9,
 
   bmr: conditional(
     equal('human.sex', 'male'),
@@ -71,13 +77,6 @@ export default DS.Model.extend({
     ),
     4.35
   ),
-
-
-  proteinPerPound: 1.1,
-  carbsPerPoundNoActivity: 0.5,
-  carbsPerPoundLightActivity: 0.7,
-  carbsPerPoundModerateActivity: 1.0,
-  carbsPerPoundIntenseActivity: 1.2,
 
   proteinNoActivity: product('goalWeight', 'proteinPerPound'),
   proteinLightActivity: computed.alias('proteinNoActivity'),
